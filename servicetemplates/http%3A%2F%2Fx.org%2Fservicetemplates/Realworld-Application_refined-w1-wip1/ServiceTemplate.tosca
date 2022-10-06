@@ -52,7 +52,7 @@
                     </Properties>
                 </Properties>
             </NodeTemplate>
-            <NodeTemplate xmlns:otntyIgeneral="http://opentosca.org/nodetypes" name="DockerContainer" minInstances="1" maxInstances="1" type="otntyIgeneral:DockerContainer_w1" id="DockerContainer_w1_0" winery:x="1179" winery:y="400">
+            <NodeTemplate xmlns:otntyIgeneral="http://opentosca.org/nodetypes" name="DockerContainer" minInstances="1" maxInstances="1" type="otntyIgeneral:DockerContainer_w1" id="DockerContainer_w1_0" winery:x="1301" winery:y="398">
                 <Properties>
                     <Properties xmlns="http://www.example.org">
                         <Port>3306</Port>
@@ -74,7 +74,7 @@
                     </Properties>
                 </Properties>
             </NodeTemplate>
-            <NodeTemplate xmlns:ntyIgeneral="http://x.org/nodetypes" name="MySQL-DB" minInstances="1" maxInstances="1" type="ntyIgeneral:MySQL-DB_Native-w1-wip1" id="MySQL-DB_Native-w1-wip1_0" winery:x="1182" winery:y="102">
+            <NodeTemplate xmlns:ntyIgeneral="http://x.org/nodetypes" name="MySQL-DB" minInstances="1" maxInstances="1" type="ntyIgeneral:MySQL-DB_Native-w1-wip1" id="MySQL-DB_Native-w1-wip1_0" winery:x="1300" winery:y="105">
                 <Properties>
                     <Properties xmlns="http://www.example.org">
                         <DBName>realWorld</DBName>
@@ -83,7 +83,7 @@
                     </Properties>
                 </Properties>
             </NodeTemplate>
-            <NodeTemplate xmlns:ntyIgeneral="http://x.org/nodetypes" name="MySQL-DBMS" minInstances="1" maxInstances="1" type="ntyIgeneral:MySQL-DBMS_Remote-w1-wip1" id="MySQL-DBMS_Remote-w1-wip1_0" winery:x="1184" winery:y="254">
+            <NodeTemplate xmlns:ntyIgeneral="http://x.org/nodetypes" name="MySQL-DBMS" minInstances="1" maxInstances="1" type="ntyIgeneral:MySQL-DBMS_Remote-w1-wip1" id="MySQL-DBMS_Remote-w1-wip1_0" winery:x="1298" winery:y="246">
                 <Properties>
                     <Properties xmlns="http://www.example.org">
                         <DBMSUser>root</DBMSUser>
@@ -92,16 +92,14 @@
                     </Properties>
                 </Properties>
             </NodeTemplate>
-            <NodeTemplate xmlns:ntyIgeneral="http://x.org/nodetypes" name="BackendDBProxy_w1-wip1" minInstances="1" maxInstances="1" type="ntyIgeneral:BackendDBProxy_w1-wip1" id="rs_BackendDBProxy_w1-wip1_0" winery:x="887" winery:y="251">
+            <NodeTemplate xmlns:ntyIgeneral="http://x.org/nodetypes" name="BackendDBProxy_w1-wip1" minInstances="1" maxInstances="1" type="ntyIgeneral:BackendDBProxy_w1-wip1" id="rs_BackendDBProxy_w1-wip1_1" winery:x="951" winery:y="247">
                 <Properties>
                     <BackendDBProxy_w1-wip1 xmlns="http://x.org/nodetypes">
-                        <AppName/>
+                        <AppName>RealWorldApplication</AppName>
                         <Port/>
                         <context_root/>
-                        <DBName>realWorld</DBName>
-                        <DBUser>user</DBUser>
-                        <DBPassword>pass</DBPassword>
-                        <DBMSPort>3306</DBMSPort>
+                        <DBMSPort>6033</DBMSPort>
+                        <VMIP>127.0.0.1</VMIP>
                     </BackendDBProxy_w1-wip1>
                 </Properties>
             </NodeTemplate>
@@ -160,7 +158,7 @@
                     </properties>
                 </Properties>
                 <SourceElement ref="RealWorld-Application-Backend_Java11-Spring-w1_0"/>
-                <TargetElement ref="rs_BackendDBProxy_w1-wip1_0"/>
+                <TargetElement ref="rs_BackendDBProxy_w1-wip1_1"/>
             </RelationshipTemplate>
             <RelationshipTemplate xmlns:ToscaBaseTypes="http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes" name="ConnectsTo" type="ToscaBaseTypes:ConnectsTo" id="rs_con_ConnectsTo_1">
                 <Properties>
@@ -168,14 +166,14 @@
                         <ChannelType/>
                     </properties>
                 </Properties>
-                <SourceElement ref="rs_BackendDBProxy_w1-wip1_0"/>
+                <SourceElement ref="rs_BackendDBProxy_w1-wip1_1"/>
                 <TargetElement ref="MySQL-DB_Native-w1-wip1_0"/>
             </RelationshipTemplate>
             <RelationshipTemplate xmlns:ToscaBaseTypes="http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes" name="HostedOn" type="ToscaBaseTypes:HostedOn" id="rs_con_HostedOn_2">
                 <Properties>
                     <Properties xmlns="http://www.example.org"/>
                 </Properties>
-                <SourceElement ref="rs_BackendDBProxy_w1-wip1_0"/>
+                <SourceElement ref="rs_BackendDBProxy_w1-wip1_1"/>
                 <TargetElement ref="DockerContainer"/>
             </RelationshipTemplate>
         </TopologyTemplate>
