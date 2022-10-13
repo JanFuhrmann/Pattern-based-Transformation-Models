@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Definitions xmlns="http://docs.oasis-open.org/tosca/ns/2011/12" xmlns:winery="http://www.opentosca.org/winery/extensions/tosca/2013/02/12" xmlns:selfservice="http://www.eclipse.org/winery/model/selfservice" xmlns:testwineryopentoscaorg="http://test.winery.opentosca.org" targetNamespace="http://x.org/nodetypeimplementations" id="ntyiIgeneral-BackendProxy-Implementation_w1-wip1">
-    <NodeTypeImplementation xmlns:ntyIgeneral="http://x.org/nodetypes" targetNamespace="http://x.org/nodetypeimplementations" name="BackendProxy-Implementation_w1-wip1" abstract="no" final="no" nodeType="ntyIgeneral:BackendProxy_w1-wip1">
-        <ImplementationArtifacts>
-            <ImplementationArtifact xmlns:atyIgeneral="http://docs.oasis-open.org/tosca/ToscaNormativeTypes/artifacttypes" xmlns:ateIgeneral="http://x.org/artifacttemplates" name="Install" interfaceName="http://opentosca.org/interfaces/lifecycle" operationName="install" artifactType="atyIgeneral:Python" artifactRef="ateIgeneral:BackendProxy_install-w1-wip1"/>
-        </ImplementationArtifacts>
-    </NodeTypeImplementation>
-</Definitions>
