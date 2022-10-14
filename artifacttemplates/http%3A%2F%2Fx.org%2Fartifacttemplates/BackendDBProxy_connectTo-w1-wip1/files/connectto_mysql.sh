@@ -1,10 +1,7 @@
 #!/bin/bash
 
 echo "Connect ProxySQL to Database"
-echo "VMIP: $VMIP and SourceVMIP: $SOURCE_VMIP and TargetVMIP: $TARGET_VMIP"
-echo "Configure ProxySQL"
 echo "ProxySQL: Add Server $TARGET_VMIP:$TARGET_DBMSPort with user $DBUser and Password $DBPassword to known servers for database $DBName"
-
 
 echo "#file proxysql.cnf
 datadir=\"/var/lib/proxysql\"
@@ -47,7 +44,7 @@ mysql_variables=
 mysql_servers =
 (
   {
-    address=\"${TARGET_VMIP:-192.168.178.83}\"
+    address=\"${TARGET_VMIP:-localhost}\"
     port=\"${TARGET_DBMSPort:-3306}\"
     hostgroup=0
     max_connections=200
