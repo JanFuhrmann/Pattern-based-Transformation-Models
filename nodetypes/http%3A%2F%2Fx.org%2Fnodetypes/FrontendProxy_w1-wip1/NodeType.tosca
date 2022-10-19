@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Definitions xmlns="http://docs.oasis-open.org/tosca/ns/2011/12" xmlns:winery="http://www.opentosca.org/winery/extensions/tosca/2013/02/12" xmlns:selfservice="http://www.eclipse.org/winery/model/selfservice" xmlns:testwineryopentoscaorg="http://test.winery.opentosca.org" targetNamespace="http://x.org/nodetypes" id="ntyIgeneral-FrontendProxy_w1-wip1">
+    <NodeType name="FrontendProxy_w1-wip1" abstract="no" final="no" targetNamespace="http://x.org/nodetypes">
+        <winery:PropertiesDefinition elementname="FrontendProxy_w1-wip1" namespace="http://x.org/nodetypes">
+            <winery:properties>
+                <winery:defaultValue>4000</winery:defaultValue>
+                <winery:derivedFromStatus>SELF</winery:derivedFromStatus>
+                <winery:derivedFromType xmlns:ntyIgeneral="http://x.org/nodetypes">ntyIgeneral:FrontendProxy_w1-wip1</winery:derivedFromType>
+                <winery:key>Port</winery:key>
+                <winery:type>xsd:string</winery:type>
+            </winery:properties>
+            <winery:properties>
+                <winery:defaultValue>RealWorldApplication-Proxy</winery:defaultValue>
+                <winery:key>AppName</winery:key>
+                <winery:type>xsd:string</winery:type>
+            </winery:properties>
+        </winery:PropertiesDefinition>
+        <DerivedFrom xmlns:ntyIgeneral1="http://docs.oasis-open.org/tosca/ToscaNormativeTypes/nodetypes" typeRef="ntyIgeneral1:WebApplication"/>
+        <Interfaces>
+            <Interface name="http://opentosca.org/interfaces/lifecycle">
+                <Operation name="install">
+                    <InputParameters>
+                        <InputParameter name="AppName" type="string" required="yes"/>
+                    </InputParameters>
+                </Operation>
+                <Operation name="start">
+                    <InputParameters>
+                        <InputParameter name="AppName" type="string" required="yes"/>
+                    </InputParameters>
+                </Operation>
+            </Interface>
+            <Interface name="http://opentosca.org/interfaces/connections">
+                <Operation name="connectTo">
+                    <InputParameters>
+                        <InputParameter name="AppName" type="string" required="yes"/>
+                        <InputParameter name="SOURCE_Port" type="string" required="yes"/>
+                        <InputParameter name="TARGET_Port" type="string" required="yes"/>
+                        <InputParameter name="VMIP" type="string" required="yes"/>
+                        <InputParameter name="User" type="string" required="yes"/>
+                        <InputParameter name="Password" type="string" required="yes"/>
+                    </InputParameters>
+                </Operation>
+            </Interface>
+        </Interfaces>
+    </NodeType>
+</Definitions>
