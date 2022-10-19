@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Definitions xmlns="http://docs.oasis-open.org/tosca/ns/2011/12" xmlns:winery="http://www.opentosca.org/winery/extensions/tosca/2013/02/12" xmlns:selfservice="http://www.eclipse.org/winery/model/selfservice" xmlns:testwineryopentoscaorg="http://test.winery.opentosca.org" targetNamespace="http://x.org/nodetypeimplementations" id="ntyiIgeneral-RabbitMQ-Implementation_w1-wip1">
+    <NodeTypeImplementation xmlns:ntyIgeneral="http://x.org/nodetypes" targetNamespace="http://x.org/nodetypeimplementations" name="RabbitMQ-Implementation_w1-wip1" abstract="no" final="no" nodeType="ntyIgeneral:RabbitMQ_w1-wip1">
+        <ImplementationArtifacts>
+            <ImplementationArtifact xmlns:ToscaBaseTypes="http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes" xmlns:ateIgeneral="http://x.org/artifacttemplates" name="Install" interfaceName="http://opentosca.org/interfaces/lifecycle" operationName="install" artifactType="ToscaBaseTypes:ScriptArtifact" artifactRef="ateIgeneral:RabbitMQ_install-w1-wip1"/>
+            <ImplementationArtifact xmlns:ToscaBaseTypes="http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes" xmlns:ateIgeneral="http://x.org/artifacttemplates" name="Configure" interfaceName="http://opentosca.org/interfaces/lifecycle" operationName="configure" artifactType="ToscaBaseTypes:ScriptArtifact" artifactRef="ateIgeneral:RabbitMQ_configure-w1-wip1"/>
+        </ImplementationArtifacts>
+    </NodeTypeImplementation>
+</Definitions>
