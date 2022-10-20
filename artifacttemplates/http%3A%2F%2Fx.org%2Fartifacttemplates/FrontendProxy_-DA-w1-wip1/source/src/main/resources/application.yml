@@ -1,0 +1,9 @@
+server:
+  port: 4002
+
+spring:
+  rabbitmq:
+    host: 192.168.178.83
+    username: user
+    password: pass
+    port: 5672
